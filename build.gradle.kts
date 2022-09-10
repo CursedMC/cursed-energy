@@ -84,23 +84,13 @@ dependencies {
 	modImplementation(libs.quilt.loader)
 	modImplementation(libs.quilt.lang.kotlin)
 	
-	modImplementationInclude(libs.core.qsl.base)
-	modImplementationInclude(libs.core.networking)
-	
-	modImplementationInclude(libs.block.entity)
-	modImplementationInclude(libs.block.extensions)
-	
-	modImplementationInclude(libs.item.group)
-	modImplementationInclude(libs.item.setting)
-	
 	// cursed library collection
 	implementation(include("net.auoeke", "reflect", "5.+"))
 	implementation(include("net.gudenau.lib", "unsafe", "latest.release"))
-	implementation(include("org.objenesis", "objenesis", "3.3"))
 	
 	// more cursed libraries
-	implementation("net.bytebuddy", "byte-buddy-agent", "1.12.+")
-	modImplementation("maven.modrinth", "yqh", "0.1.2")
+//	implementation("net.bytebuddy", "byte-buddy-agent", "1.12.+")
+//	modImplementation("maven.modrinth", "yqh", "0.1.2")
 	
 	// must-have libraries
 	modImplementation("maven.modrinth", "sodium", "mc1.19-0.4.2")
@@ -108,7 +98,7 @@ dependencies {
 	
 	// QSL is not a complete API; You will need Quilted Fabric API to fill in the gaps.
 	// Quilted Fabric API will automatically pull in the correct QSL version.
-	modImplementation(libs.quilted.fabric.api)
+//	modImplementation(libs.quilted.fabric.api)
 	// modImplementation libs.bundles.quilted.fabric.api // If you wish to use Fabric API's deprecated modules, you can replace the above line with this one
 	
 	modRuntimeOnly("com.terraformersmc", "modmenu", "4.0.6")
