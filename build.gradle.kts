@@ -77,7 +77,7 @@ val modImplementationInclude by configurations.register("modImplementationInclud
 // See https://docs.gradle.org/current/userguide/platforms.html for information on how version catalogs work.
 dependencies {
 	minecraft(libs.minecraft)
-	mappings(loom.layered() {
+	mappings(loom.layered {
 		addLayer(quiltMappings.mappings("org.quiltmc:quilt-mappings:${libs.versions.minecraft.get()}+build.${libs.versions.quilt.mappings.get()}:v2"))
 		// officialMojangMappings() // Uncomment if you want to use Mojang mappings as your primary mappings, falling back on QM for parameters and Javadocs
 	})
@@ -98,7 +98,7 @@ dependencies {
 	
 	// QSL is not a complete API; You will need Quilted Fabric API to fill in the gaps.
 	// Quilted Fabric API will automatically pull in the correct QSL version.
-//	modImplementation(libs.quilted.fabric.api)
+	modImplementation(libs.quilted.fabric.api)
 	// modImplementation libs.bundles.quilted.fabric.api // If you wish to use Fabric API's deprecated modules, you can replace the above line with this one
 	
 	modRuntimeOnly("com.terraformersmc", "modmenu", "4.0.6")
@@ -188,5 +188,24 @@ publishing {
 		// Notice: This block does NOT have the same function as the block in the top level.
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
+	}
+}
+
+sourceSets {
+	test {
+		compileClasspath += sourceSets.main.get().compileClasspath
+		runtimeClasspath += sourceSets.main.get().runtimeClasspath
+		compileClasspath += sourceSets.main.get().output
+		runtimeClasspath += sourceSets.main.get().output
+	}
+}
+
+loom {
+	runs {
+		create("testClient") {
+			client()
+			name("Test Client")
+			source(sourceSets.test.get())
+		}
 	}
 }

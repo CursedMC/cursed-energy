@@ -1,0 +1,5 @@
+{
+	"${id}": "${id}",
+	"unit.energy.${id}.cursed_energy.symbol": "CE",
+	"unit.energy.${id}.cursed_energy.name": "Cursed Energy"
+}

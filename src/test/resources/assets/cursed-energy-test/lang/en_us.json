@@ -1,0 +1,5 @@
+{
+	"${id}": "${id}",
+	"unit.energy.${id}-test.test_energy.symbol": "TE",
+	"unit.energy.${id}-test.test_energy.name": "Test Energy"
+}

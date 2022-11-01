@@ -2,11 +2,11 @@
 	"schema_version": 1,
 	"quilt_loader": {
 		"group": "${group}",
-		"id": "${id}",
-		"version": "${version}",
+		"id": "${id}-test",
+		"version": "1.0.0",
 		"metadata": {
-			"name": "Cursed Energy",
-			"description": "The Cursed Energy API is an energy calculation and transfer API made for Quilt.",
+			"name": "Cursed Energy Test",
+			"description": "",
 			"contributors": {
 				"Sylv": "Owner"
 			},
@@ -15,11 +15,11 @@
 				"issues": "https://github.com/CursedMC/cursed-energy/issues",
 				"sources": "https://github.com/CursedMC/cursed-energy"
 			},
-			"icon": "assets/cursed-energy/icon.png"
+			"icon": "assets/cursed-energy-test/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "dev.cursedmc.ce.impl.CursedEnergyMain"
+			"init": "dev.cursedmc.ce.test.CursedEnergyTest"
 		},
 		"depends": [
 			{
@@ -33,14 +33,16 @@
 			{
 				"id": "minecraft",
 				"versions": ">=1.19.2"
+			},
+			{
+				"id": "cursed-energy",
+				"versions": ">=0.1.0"
 			}
 		]
 	},
-	"mixin": "ce.mixins.json",
 	"modmenu": {
 		"links": {
 			"modmenu.discord": "https://discord.gg/WTkbaudBDm"
-		},
-		"badges": ["library"]
+		}
 	}
 }
