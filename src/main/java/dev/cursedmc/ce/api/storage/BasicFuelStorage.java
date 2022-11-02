@@ -1,32 +1,37 @@
 package dev.cursedmc.ce.api.storage;
 
 import dev.cursedmc.ce.api.fuel.Fuel;
-import dev.cursedmc.ce.api.fuel.FuelAmount;
-import dev.cursedmc.ce.api.fuel.FuelType;
 
-public class BasicFuelStorage implements FuelStorage {
-	private final FuelType type;
-	private final Fuel fuel;
-	private final FuelAmount amount;
+public class BasicFuelStorage<F> implements FuelStorage<F> {
+	private Fuel<F> fuel;
+	private long amount;
 	
-	public BasicFuelStorage(FuelType type, Fuel fuel, FuelAmount amount) {
-		this.type = type;
+	public BasicFuelStorage(Fuel<F> fuel, long amount) {
 		this.fuel = fuel;
 		this.amount = amount;
 	}
 	
-	@Override
-	public FuelType getType() {
-		return this.type;
+	public BasicFuelStorage(Fuel<F> fuel) {
+		this(fuel, 0);
 	}
 	
 	@Override
-	public Fuel getFuel() {
+	public Fuel<F> getFuel() {
 		return this.fuel;
 	}
 	
 	@Override
-	public FuelAmount getAmount() {
+	public void setFuel(Fuel<F> fuel) {
+		this.fuel = fuel;
+	}
+	
+	@Override
+	public long getAmount() {
 		return this.amount;
+	}
+	
+	@Override
+	public void setAmount(long amount) {
+		this.amount = amount;
 	}
 }

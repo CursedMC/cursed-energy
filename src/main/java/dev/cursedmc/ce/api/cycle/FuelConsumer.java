@@ -5,7 +5,7 @@ import dev.cursedmc.ce.api.storage.FuelStorage;
 /**
  * A consumer of fuel.
  */
-public interface FuelConsumer {
+public interface FuelConsumer<F> {
 	/**
 	 * For furnaces, gets the ratio of current fuelTime to normal furnace (default) fuelTime.<br>
 	 * For other consumers of fuel, gets the ratio of units/tick (current fuelTime) to default units/tick (normal fuelTime).<br>
@@ -31,5 +31,5 @@ public interface FuelConsumer {
 	/**
 	 * @return The currently inserted fuel.
 	 */
-	FuelStorage getFuelStorage();
+	FuelStorage<F> getFuelStorage();
 }

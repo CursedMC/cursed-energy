@@ -1,17 +1,17 @@
 package dev.cursedmc.ce.api.fuel.item;
 
 import dev.cursedmc.ce.api.fuel.Fuel;
-import net.minecraft.fluid.Fluid;
+import dev.cursedmc.ce.api.fuel.FuelType;
 import net.minecraft.item.Item;
 
-public class ItemFuel implements Fuel {
+public class ItemFuel implements Fuel<Item> {
 	@Override
-	public Item getItem() throws NullPointerException {
-		return null;
+	public FuelType getType() {
+		return FuelType.ITEM;
 	}
 	
 	@Override
-	public Fluid getFluid() throws NullPointerException {
-		throw new NullPointerException("")
+	public Item getItem() {
+		return null;
 	}
 }
